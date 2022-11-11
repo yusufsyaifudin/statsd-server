@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  gostatsd:
+    image: atlassianlabs/gostatsd:35.1.2
+    restart: always
+    command:
+      - gostatsd
+      - --config-path=/etc/gostatsd/config.toml
+    env_file: .env
+    ports:
+      - "8125:8125/udp"
+      - "8126:8126"
+      - "8080:8080"
+      - "6060:6060"
+    volumes:
+      - ./gostatsd:/etc/gostatsd:ro

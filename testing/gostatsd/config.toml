@@ -1,0 +1,12 @@
+server-mode='standalone'
+backends='stdout'
+http-servers='receiver profiler'
+
+[http.receiver]
+address='0.0.0.0:8080'
+enable-ingestion=true
+
+[http.profiler]
+address='127.0.0.1:6060'
+enable-expvar=true
+enable-prof=true
